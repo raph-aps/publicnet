@@ -1,77 +1,92 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raphael Alexandre Pepe | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Raphael Alexandre Pepe - Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
-<body id="ipaq">
-  <nav class="logo-bar">
-    <div class="logo" id="iyx2">R. PEPE</div>
-  </nav>
+<body class="is-preload">
+    <div id="wrapper" class="fade-in">
 
-  <header class="header-banner" id="i8bc">
-    <div class="container-width" id="imuy">
-      <nav class="menu">
-        <a href="#about" class="menu-item">ABOUT</a>
-        <a href="#publications" class="menu-item">PUBLICATIONS</a>
-        <a href="#contact" class="menu-item">CONTACT</a>
-      </nav>
-      <div class="clearfix"></div>
-      <div class="lead-title" id="i36mz">Raphael Alexandre Pepe</div>
-      <div class="sub-lead-title">Applied Mathematics & Computer Science.<br>Researcher at the University of Geneva (UNIGE).</div>
-      <a href="#publications" class="lead-btn" id="igkdk">View Publications</a>
-    </div>
-  </header>
-  
-  <section class="flex-sect" id="publications">
-    <div class="container-width">
-      <div class="flex-title">Selected Publications</div>
-      <div class="flex-desc">Scientific papers and technical research documents.</div>
-      <div class="cards" id="publications-grid"></div>
-    </div>
-  </section>
-  
-  <section class="blk-sect" id="contact">
-    <div class="container-width">
-      <div class="blk-title">Get in touch</div>
-      <div class="blk-desc">Currently open for academic research collaborations and technical engineering projects.</div>
-      <div class="price-cards">
-         <a href="mailto:votre-email@etu.unige.ch" class="lead-btn">Email Me</a>
-         <a href="https://github.com/PepeRaphael" target="_blank" class="lead-btn btn-outline">GitHub</a>
-      </div>
-    </div>
-  </section>
-  
-  <footer class="footer-under">
-    <div class="container-width">
-      <div class="footer-container">
-        <div class="foot-lists">
-          <div class="foot-list">
-            <div class="foot-list-title">Profile</div>
-            <a href="#contact"><div class="foot-list-item">Contact</div></a>
-            <a href="https://github.com/PepeRaphael" target="_blank"><div class="foot-list-item">GitHub</div></a>
-          </div>
-          <div class="foot-list">
-            <div class="foot-list-title">Institution</div>
-            <div class="foot-list-item">University of Geneva</div>
-            <div class="foot-list-item">Faculty of Science</div>
-          </div>
-          <div class="clearfix"></div>
+        <div id="intro">
+            <h1>Raphael A.<br />Pepe</h1>
+            <p>Applied Mathematics & Computer Science.<br />
+            Researcher and Student at the University of Geneva (UNIGE).</p>
+            <ul class="actions">
+                <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+            </ul>
         </div>
-      </div>
-    </div>
-    <div class="copyright">
-      <div class="container-width">
-        <div class="made-with">© 2026 Raphael Alexandre Pepe.</div>
-        <div class="foot-social-btns">UNIGE</div>
-        <div class="clearfix"></div>
-      </div>
-    </div>
-  </footer>
 
-  <script src="js/script.js"></script>
+        <header id="header">
+            <a href="index.html" class="logo">R. PEPE</a>
+        </header>
+
+        <nav id="nav">
+            <ul class="links">
+                <li class="active"><a href="#wrapper">About</a></li>
+                <li><a href="#main">Publications</a></li>
+                <li><a href="#footer">Contact</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://github.com/PepeRaphael" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+            </ul>
+        </nav>
+
+        <div id="main">
+            <section class="posts" id="publications-grid">
+                <article style="width: 100%; text-align: center; border: none;">
+                    <header>
+                        <h2>Loading repository data...</h2>
+                    </header>
+                </article>
+            </section>
+        </div>
+
+        <footer id="footer">
+            <section>
+                <header class="major">
+                    <h2>Get in touch</h2>
+                </header>
+                <p>Currently open for academic research collaborations, technical engineering projects, and professional inquiries regarding numerical analysis and information theory.</p>
+                <ul class="actions">
+                    <li><a href="mailto:votre-email@etu.unige.ch" class="button primary large">Send an Email</a></li>
+                </ul>
+            </section>
+            <section class="split contact">
+                <section class="alt">
+                    <h3>Institution</h3>
+                    <p>University of Geneva (UNIGE)<br />
+                    Faculty of Science</p>
+                </section>
+                <section>
+                    <h3>Email</h3>
+                    <p><a href="mailto:votre-email@etu.unige.ch">votre-email@etu.unige.ch</a></p>
+                </section>
+                <section>
+                    <h3>Social</h3>
+                    <ul class="icons alt">
+                        <li><a href="https://github.com/PepeRaphael" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                    </ul>
+                </section>
+            </section>
+        </footer>
+
+        <div id="copyright">
+            <ul><li>&copy; 2026 Raphael Alexandre Pepe</li><li>Design: HTML5 UP</li></ul>
+        </div>
+
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/publications.js"></script>
+
 </body>
 </html>
