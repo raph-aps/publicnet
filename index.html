@@ -3,55 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raphael Alexandre Pepe - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Raphael Alexandre Pepe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-content">
-            <a href="#about" class="logo">R. PEPE</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <header id="about" class="hero-section">
-        <div class="container hero-container">
-            <h1 class="hero-title">Raphael Alexandre Pepe</h1>
-            <h2 class="hero-subtitle">Applied Mathematics & Computer Science.</h2>
-            <p class="hero-text">
-                Student at the University of Geneva (UNIGE) specializing in numerical analysis, information theory, and programming. This portfolio gathers my academic research, technical projects, and professional publications.
-            </p>
-        </div>
-    </header>
-
-    <section id="publications" class="publications-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Research & Publications</h2>
+    <div class="layout-wrapper">
+        <nav class="site-header">
+            <a href="/" class="brand">Raphael A. Pepe</a>
+            <div class="nav-links">
+                <a href="#publications">Publications</a>
+                <a href="#contact">Contact</a>
             </div>
-            <div id="publications-grid" class="grid">
-                <div class="loader">Loading repository data...</div>
-            </div>
-        </div>
-    </section>
+        </nav>
 
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="contact-wrapper">
-                <h2>Get in touch</h2>
-                <p>Open for academic and technical collaborations.</p>
-                <div class="contact-links">
-                    <a href="mailto:votre-email@etu.unige.ch" class="btn primary-btn">Email Me</a>
-                    <a href="https://github.com/PepeRaphael" target="_blank" class="btn secondary-btn">GitHub Profile</a>
+        <main>
+            <section class="hero">
+                <h1>Applied Mathematics & Computer Science.</h1>
+                <p>
+                    Student at the University of Geneva (UNIGE). This portfolio gathers my academic research, technical projects, and professional publications in numerical analysis and information theory.
+                </p>
+            </section>
+
+            <section id="publications" class="section">
+                <h2 class="section-title">Selected Publications</h2>
+                <div id="publications-grid" class="grid"></div>
+            </section>
+
+            <section id="contact" class="section contact-section">
+                <h2 class="section-title">Contact</h2>
+                <p>For academic inquiries or technical collaborations.</p>
+                <div class="action-buttons">
+                    <a href="mailto:votre-email@etu.unige.ch" class="btn btn-primary">Email Me</a>
+                    <a href="https://github.com/PepeRaphael" target="_blank" class="btn btn-outline">GitHub</a>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
+        </main>
+        
+        <footer>
+            <p>© 2026 Raphael Alexandre Pepe.</p>
+        </footer>
+    </div>
 
     <script src="js/script.js"></script>
 </body>
