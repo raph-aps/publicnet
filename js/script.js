@@ -1,50 +1,53 @@
-const GITHUB_USER = 'PepeRaphael'; 
-const GITHUB_REPO = 'publicnet';      
-const BRANCH = 'main';         
+const GITHUB_USER = 'PepeRaphael';
+const GITHUB_REPO = 'publicnet';
+const BRANCH = 'main';
 
 async function fetchPublications() {
     const grid = document.getElementById('publications-grid');
     if (!grid) return;
 
-    // Point d'accès de l'API GitHub pour le dossier des PDFs
-    const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/publications/pdfs`;
+    const pdfsUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/publications/pdfs`;
+    const imgsUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/publications/images`;
 
     try {
-        const response = await fetch(apiUrl);
-        
-        if (!response.ok) {
-            throw new Error(`Erreur HTTP: ${response.status}`);
+        const [pdfResponse, imgResponse] = await Promise.all([
+            fetch(pdfsUrl),
+            fetch(imgsUrl)
+        ]);
+
+        if (!pdfResponse.ok || !imgResponse.ok) {
+            throw new Error();
         }
 
-        const files = await response.json();
-        
-        // Vider le loader
+        const pdfFiles = await pdfResponse.json();
+        const imgFiles = await imgResponse.json();
+
         grid.innerHTML = '';
 
-        // Filtrer uniquement les fichiers PDF
-        const pdfFiles = files.filter(file => file.name.endsWith('.pdf'));
+        const pdfs = pdfFiles.filter(file => file.name.endsWith('.pdf'));
 
-        if (pdfFiles.length === 0) {
+        if (pdfs.length === 0) {
             grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">Aucune publication trouvée.</p>';
             return;
         }
 
-        pdfFiles.forEach(file => {
-            // Extraction du nom de base (ex: "Ondes_Acoustiques.pdf" -> "Ondes_Acoustiques")
+        pdfs.forEach(file => {
             const baseName = file.name.replace('.pdf', '');
-            
-            // Formatage du titre : remplace les tirets et underscores par des espaces
             const displayTitle = baseName.replace(/[-_]/g, ' ');
-
-            // Construction des URLs brutes (raw) pour le PDF et l'image
             const pdfUrl = file.download_url;
-            const imgUrl = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${BRANCH}/publications/images/${baseName}.jpg`;
 
-            // Création de l'élément HTML interactif
+            const matchingImg = imgFiles.find(img => {
+                const lastDotIndex = img.name.lastIndexOf('.');
+                const imgBaseName = lastDotIndex !== -1 ? img.name.substring(0, lastDotIndex) : img.name;
+                return imgBaseName === baseName;
+            });
+
+            const imgUrl = matchingImg ? matchingImg.download_url : '';
+
             const card = document.createElement('a');
             card.href = pdfUrl;
             card.className = 'pub-card';
-            card.target = '_blank'; // Ouvre le PDF dans un nouvel onglet
+            card.target = '_blank';
             card.rel = 'noopener noreferrer';
 
             card.innerHTML = `
@@ -60,10 +63,8 @@ async function fetchPublications() {
         });
 
     } catch (error) {
-        console.error("Échec de la récupération des données de l'API:", error);
-        grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: red;">Erreur lors du chargement des publications. Vérifiez la configuration du dépôt.</p>`;
+        grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: red;">Erreur lors du chargement des données. Vérifiez l'arborescence du dépôt.</p>`;
     }
 }
 
-// Initialisation au chargement du DOM
 document.addEventListener('DOMContentLoaded', fetchPublications);
