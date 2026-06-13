@@ -15,9 +15,7 @@ async function fetchPublications() {
             fetch(imgsUrl)
         ]);
 
-        if (!pdfResponse.ok || !imgResponse.ok) {
-            throw new Error();
-        }
+        if (!pdfResponse.ok || !imgResponse.ok) throw new Error();
 
         const pdfFiles = await pdfResponse.json();
         const imgFiles = await imgResponse.json();
@@ -27,11 +25,11 @@ async function fetchPublications() {
         const pdfs = pdfFiles.filter(file => file.name.endsWith('.pdf'));
 
         if (pdfs.length === 0) {
-            grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">Aucune publication trouvée.</p>';
+            grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No publications found.</p>';
             return;
         }
 
-        pdfs.forEach(file => {
+        const publicationsData = await Promise.all(pdfs.map(async (file) => {
             const baseName = file.name.replace('.pdf', '');
             const displayTitle = baseName.replace(/[-_]/g, ' ');
             const pdfUrl = file.download_url;
@@ -43,27 +41,48 @@ async function fetchPublications() {
             });
 
             const imgUrl = matchingImg ? matchingImg.download_url : '';
+            let formattedDate = 'Date unknown';
 
+            try {
+                const commitUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/commits?path=${file.path}&per_page=1`;
+                const commitResponse = await fetch(commitUrl);
+                if (commitResponse.ok) {
+                    const commitData = await commitResponse.json();
+                    if (commitData.length > 0) {
+                        const dateObj = new Date(commitData[0].commit.committer.date);
+                        formattedDate = dateObj.toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        });
+                    }
+                }
+            } catch (e) {}
+
+            return { displayTitle, pdfUrl, imgUrl, formattedDate };
+        }));
+
+        publicationsData.forEach(pub => {
             const card = document.createElement('a');
-            card.href = pdfUrl;
+            card.href = pub.pdfUrl;
             card.className = 'pub-card';
             card.target = '_blank';
             card.rel = 'noopener noreferrer';
 
             card.innerHTML = `
                 <div class="pub-image-container">
-                    <img src="${imgUrl}" alt="${displayTitle}" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100%\\' height=\\'100%\\'><rect width=\\'100%\\' height=\\'100%\\' fill=\\'%23e9ecef\\'/><text x=\\'50%\\' y=\\'50%\\' fill=\\'%236c757d\\' font-family=\\'Arial\\' font-size=\\'14\\' text-anchor=\\'middle\\' dominant-baseline=\\'middle\\'>Image non trouvée</text></svg>'">
+                    <img src="${pub.imgUrl}" alt="${pub.displayTitle}" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100%\\' height=\\'100%\\'><rect width=\\'100%\\' height=\\'100%\\' fill=\\'%23e9ecef\\'/><text x=\\'50%\\' y=\\'50%\\' fill=\\'%236c757d\\' font-family=\\'Arial\\' font-size=\\'14\\' text-anchor=\\'middle\\' dominant-baseline=\\'middle\\'>Image not found</text></svg>'">
                 </div>
                 <div class="pub-content">
-                    <h3>${displayTitle}</h3>
+                    <h3>${pub.displayTitle}</h3>
+                    <p class="pub-date">Published: ${pub.formattedDate}</p>
                 </div>
             `;
-
             grid.appendChild(card);
         });
 
     } catch (error) {
-        grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: red;">Erreur lors du chargement des données. Vérifiez l'arborescence du dépôt.</p>`;
+        grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: red;">Error loading data. Please check the repository structure.</p>`;
     }
 }
 
