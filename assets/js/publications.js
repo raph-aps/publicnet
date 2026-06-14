@@ -24,10 +24,16 @@ document.addEventListener('DOMContentLoaded', function () {
             repo = pathSegments[0] || (username + '.github.io');
         } else {
             // Configuration manuelle par défaut facultative pour le développement local
-            username = "RaphaelPepe";
+            username = "PepeRaphael";
             repo = "portfolio"; 
         }
     }
+
+    // Mise à jour dynamique des photos de profil via l'avatar GitHub
+    const profileImages = document.querySelectorAll('.dynamic-profile-img');
+    profileImages.forEach(img => {
+        img.src = `https://github.com/${username}.png`;
+    });
 
     const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/publications`;
     const grid = document.getElementById('publications-grid');
