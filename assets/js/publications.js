@@ -29,12 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Mise à jour dynamique des photos de profil via l'avatar GitHub
-    const profileImages = document.querySelectorAll('.dynamic-profile-img');
-    profileImages.forEach(img => {
-        img.src = `https://github.com/${username}.png`;
-    });
-
     const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/publications`;
     const grid = document.getElementById('publications-grid');
     const emptyState = document.getElementById('pub-empty');
