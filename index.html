@@ -27,7 +27,7 @@
 
 			<nav id="nav">
 				<ul class="links">
-					<li class="active"><a href="#main">Publications</a></li>
+					<li class="active"><a href="#main" class="scrolly">Publications</a></li>
 					<li><a href="#about" class="scrolly">About & Contact</a></li>
 				</ul>
 				<ul class="icons">
@@ -39,33 +39,21 @@
 
 			<div id="main">
 
-				<section class="pub-header">
-					<header class="major">
-						<h2>Latest Publications</h2>
-						<p>Click on any publication to open the PDF directly in your browser.</p>
-					</header>
-				</section>
-
 				<section class="posts" id="publications-grid">
-					<div class="pub-loading">
-						<span class="icon solid fa-spinner fa-spin"></span>
-						<p>Loading publications…</p>
-					</div>
-				</section>
+					</section>
 
-				<section class="pub-empty" id="pub-empty" style="display:none;">
-					<div class="pub-empty-inner">
-						<span class="icon solid fa-file-alt pub-empty-icon"></span>
-						<h3>No publications yet</h3>
-					</div>
-				</section>
+				<div id="pub-empty" style="display:none; text-align:center; padding: 4em 2em;">
+					<span class="icon solid fa-file-alt" style="font-size: 3em; display: block; margin-bottom: 0.5em; opacity: 0.5;"></span>
+					<h3>No publications found</h3>
+					<p>Add PDF and image files with matching names to your publications folder.</p>
+				</div>
 
 				<section class="post" id="about">
 					<header class="major">
 						<h2>About Me</h2>
 					</header>
 
-					<div class="profile-card">
+					<div class="profile-card" style="margin-bottom: 3rem;">
 						<div class="profile-avatar">
 							<img src="images/avatar.jpg" alt="Profile photo" id="profile-img"
 							     onerror="this.style.display='none'; document.getElementById('profile-initials').style.display='flex';" />
@@ -109,19 +97,6 @@
 					</div>
 				</section>
 
-			</div>
-
-			<div id="pdf-overlay" class="pdf-overlay" style="display:none;">
-				<div class="pdf-overlay-header">
-					<span id="pdf-overlay-title" class="pdf-title"></span>
-					<div class="pdf-overlay-actions">
-						<a id="pdf-download-btn" href="#" download class="button small icon solid fa-download">Download</a>
-						<button id="pdf-close-btn" class="pdf-close icon solid fa-times" aria-label="Close"></button>
-					</div>
-				</div>
-				<div class="pdf-overlay-body">
-					<iframe id="pdf-iframe" src="" frameborder="0" allowfullscreen></iframe>
-				</div>
 			</div>
 
 			<footer id="footer">
