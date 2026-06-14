@@ -1,38 +1,167 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Raphael Alexandre Pepe</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <nav class="navbar">
-        <div class="nav-content">
-            <h1 class="logo">Academic Portfolio</h1>
-            <ul class="nav-links">
-                <li><a href="index.html">Publications</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+<!DOCTYPE HTML>
+<!--
+	Adapted from Massively by HTML5 UP (html5up.net | @ajlkn)
+-->
+<html>
+	<head>
+		<title>Contact — My Publications</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/custom.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
 
-    <main class="container">
-        <div class="contact-card">
-            <h2>Raphael Alexandre Pepe</h2>
-            <h3 class="subtitle">University of Geneva (UNIGE)</h3>
-            
-            <div class="contact-info">
-                <p><strong>Field of Interests:</strong> Applied Mathematics, Numerical Analysis, Computer Science</p>
-                <p><strong>Institutional Email:</strong> <a href="mailto:votre-email@etu.unige.ch">votre-email@etu.unige.ch</a></p>
-                <p><strong>GitHub:</strong> <a href="https://github.com/PepeRaphael" target="_blank">github.com/PepeRaphael</a></p>
-            </div>
+		<!-- Wrapper -->
+		<div id="wrapper">
 
-            <p class="bio">
-                For academic or technical collaboration inquiries, please contact me directly via the institutional email provided above.
-            </p>
-        </div>
-    </main>
-</body>
+			<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="logo">Publications</a>
+			</header>
+
+			<!-- Nav -->
+			<nav id="nav">
+				<ul class="links">
+					<li><a href="index.html">Publications</a></li>
+					<li class="active"><a href="contact.html">Contact</a></li>
+				</ul>
+				<ul class="icons">
+					<li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon brands fa-researchgate"><span class="label">ResearchGate</span></a></li>
+				</ul>
+			</nav>
+
+			<!-- Main -->
+			<div id="main">
+
+				<!-- Profile Section -->
+				<section class="post">
+					<header class="major">
+						<span class="date">About Me</span>
+						<h1>Get in Touch</h1>
+						<p>Researcher, author, and professional.<br />
+						Feel free to reach out about my publications or collaboration opportunities.</p>
+					</header>
+
+					<!-- Profile Card -->
+					<div class="profile-card">
+						<div class="profile-avatar">
+							<img src="images/avatar.jpg" alt="Profile photo" id="profile-img"
+							     onerror="this.style.display='none'; document.getElementById('profile-initials').style.display='flex';" />
+							<div id="profile-initials" class="profile-initials" style="display:none;">YN</div>
+						</div>
+						<div class="profile-info">
+							<h2 class="profile-name">Your Name</h2>
+							<p class="profile-title">Your Title · Your Institution</p>
+							<p class="profile-bio">
+								A short biography or research focus statement. Describe your area of expertise, your current position,
+								and what drives your research. This is your professional introduction to the world.
+							</p>
+							<div class="profile-tags">
+								<span class="tag">Research Area 1</span>
+								<span class="tag">Research Area 2</span>
+								<span class="tag">Research Area 3</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- Contact Details -->
+					<div class="contact-grid">
+						<div class="contact-card">
+							<span class="icon solid fa-envelope contact-icon"></span>
+							<h4>Email</h4>
+							<p><a href="mailto:your@email.com">your@email.com</a></p>
+						</div>
+						<div class="contact-card">
+							<span class="icon brands fa-linkedin contact-icon"></span>
+							<h4>LinkedIn</h4>
+							<p><a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+						</div>
+						<div class="contact-card">
+							<span class="icon brands fa-github contact-icon"></span>
+							<h4>GitHub</h4>
+							<p><a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+						</div>
+						<div class="contact-card">
+							<span class="icon solid fa-university contact-icon"></span>
+							<h4>Institution</h4>
+							<p>Your University / Organization<br /><span style="opacity:.7">Department / Lab</span></p>
+						</div>
+					</div>
+
+					<!-- Message Form (static — works via Formspree or similar) -->
+					<div class="contact-form-wrapper">
+						<h3>Send a Message</h3>
+						<p class="form-note">Replace <code>YOUR_FORMSPREE_ID</code> in the form action with your free <a href="https://formspree.io" target="_blank">Formspree</a> endpoint to receive messages by email — no backend needed.</p>
+						<form method="post" action="https://formspree.io/f/YOUR_FORMSPREE_ID" class="contact-form">
+							<div class="fields">
+								<div class="field half">
+									<label for="name">Name</label>
+									<input type="text" name="name" id="name" placeholder="Your name" required />
+								</div>
+								<div class="field half">
+									<label for="email">Email</label>
+									<input type="email" name="email" id="email" placeholder="your@email.com" required />
+								</div>
+								<div class="field">
+									<label for="subject">Subject</label>
+									<input type="text" name="subject" id="subject" placeholder="Regarding your publication on…" />
+								</div>
+								<div class="field">
+									<label for="message">Message</label>
+									<textarea name="message" id="message" rows="5" placeholder="Your message here…" required></textarea>
+								</div>
+							</div>
+							<ul class="actions">
+								<li><input type="submit" value="Send Message" class="primary" /></li>
+								<li><input type="reset" value="Clear" /></li>
+							</ul>
+						</form>
+					</div>
+
+				</section>
+
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<section class="split contact">
+					<section>
+						<h3>Email</h3>
+						<p><a href="mailto:your@email.com">your@email.com</a></p>
+					</section>
+					<section>
+						<h3>Links</h3>
+						<ul class="icons alt">
+							<li><a href="#" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="index.html" class="icon solid alt fa-book"><span class="label">Publications</span></a></li>
+						</ul>
+					</section>
+				</section>
+			</footer>
+
+			<!-- Copyright -->
+			<div id="copyright">
+				<ul>
+					<li>&copy; Your Name</li>
+					<li>Design adapted from <a href="https://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
